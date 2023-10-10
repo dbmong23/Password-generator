@@ -1,30 +1,55 @@
-// Assignment code here
-var characters ="!@#$%^&*()0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var password = "";
-var length = 15
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+var password="";
 
-for (var i = 0; i < length; i++) {
-  var randomIndex = Math.floor(Math.random() * characters.length);
-  password += characters[randomIndex];
+function generatePassword(){
+var length = parseInt(prompt ("Enter the number of charecters:"));
+var includeuppercase = confirm ("Include Uppercase Letters?");
+var includelowercase = confirm ("Include lowercase Letters?");
+var includenumbers = confirm ("Include numbers?");
+var includesymbols = confirm ("Include symbols?");
+
+//declaring charater sets to inlude in password
+var lowercase="abcdefghijklmnopqrstuvwxyz";
+var Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "1234567890";
+var symbols = "!@#$%^&*()_+~`/?.>,<=-";
+
+var charsarr=[] //creating an empty array to store character sets
+
+if (includeuppercase){
+  charsarr.push(Uppercase)
 }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+if (includelowercase){
+  charsarr.push(lowercase)
+}
 
-// Write password to the #password input
-function writePassword() {
+if (includenumbers){
+  charsarr.push(numbers)
+}
+
+if (includesymbols){
+  charsarr.push(symbols)
+}
+
+// Write password to the #password 
+function writePassword() {                                  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  var length = parseInt(prompt("Enter the desired password length (between 8 and 128 characters):"));
-}
-// Validate the user input
-if (length < 8 || length > 128 || isNaN(length)) {
-  alert("Invalid password length. Please enter a number between 8 and 128.");
-} else {
-  password.value = password;
 
-}
-console.log("Generated Password:", password);
+  passwordText.value = password;
+} 
 
+for (var i = 0; i<length; i++){
+var generatePassword = char [Math.floor(Math.random()*char.length)];
+var writePassword = charsarr [Math.floor(Math.random()* charsarr.length)];
+password += charsarr;
+return password;
+}
+document. getElementById("passwordText").value = password
+}
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
+
+console.log(password);
