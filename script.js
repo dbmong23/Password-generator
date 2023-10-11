@@ -10,46 +10,46 @@ var includenumbers = confirm ("Include numbers?");
 var includesymbols = confirm ("Include symbols?");
 
 //declaring charater sets to inlude in password
-var lowercase="abcdefghijklmnopqrstuvwxyz";
-var Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "1234567890";
-var symbols = "!@#$%^&*()_+~`/?.>,<=-";
+var lowercase=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var Uppercase =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var numbers =[1,2,3,4,5,6,7,8,9,0]
+var symbols =["!@#$%^&*()_+~`/?.>,<=-"];
 
 var charsarr=[] //creating an empty array to store character sets
 
 if (includeuppercase){
-  charsarr.push(Uppercase)
+  charsarr = charsarr.concat(Uppercase)
 }
 
 if (includelowercase){
-  charsarr.push(lowercase)
+charsarr = charsarr.concat(lowercase)
 }
 
 if (includenumbers){
-  charsarr.push(numbers)
+  charsarr = charsarr.concat(numbers)
 }
 
 if (includesymbols){
-  charsarr.push(symbols)
+  charsarr = charsarr.concat(symbols)
 }
+console.log(charsarr);
 
+for (var i = 0; i<length; i++){
+var randomChar = charsarr [Math.floor(Math.random()*charsarr.length)];
+console.log(randomChar);
+password += randomChar;
+}
+return password;
+
+}
 // Write password to the #password 
 function writePassword() {                                  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-} 
-
-for (var i = 0; i<length; i++){
-var generatePassword = char [Math.floor(Math.random()*char.length)];
-var writePassword = charsarr [Math.floor(Math.random()* charsarr.length)];
-password += charsarr;
-return password;
-}
-document. getElementById("passwordText").value = password
 }
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 console.log(password);
